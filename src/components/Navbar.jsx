@@ -9,7 +9,12 @@ import { useLanguage } from '../contexts/LanguageContext'
 function Navbar() {
   const { language, setLanguage, t } = useLanguage()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(() => {
+    if (typeof window === 'undefined') return false
+    const current =
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    return current > 8
+  })
   const navRef = useRef(null)
   const [navHeight, setNavHeight] = useState(0)
   const pathname = usePathname()
@@ -35,9 +40,6 @@ function Navbar() {
       setIsScrolled(current > 8)
     }
 
-    const initialScroll =
-      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-    setIsScrolled(initialScroll > 8)
     window.addEventListener('scroll', handleScroll, { passive: true })
     document.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
@@ -47,7 +49,8 @@ function Navbar() {
   }, [])
 
   useEffect(() => {
-    setMenuOpen(false)
+    const id = requestAnimationFrame(() => setMenuOpen(false))
+    return () => cancelAnimationFrame(id)
   }, [pathname])
 
   useEffect(() => {

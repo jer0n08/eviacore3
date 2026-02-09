@@ -10,7 +10,6 @@ import rightChevron from '../assets/right-chevron.png'
 
 function Services() {
   const { language, t } = useLanguage()
-  const services = t('services.items')
   const steps = t('services.steps.items')
   const timelineSteps = t('services.timelineOnline.items')
   const timelineStepsFabrication = t('services.timelineFabrication.items')
