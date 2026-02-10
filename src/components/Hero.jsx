@@ -30,7 +30,7 @@ function Hero() {
     ).matches
 
     const initialTitle = titleText.toUpperCase()
-    setScrambledTitle(initialTitle)
+    const initialId = requestAnimationFrame(() => setScrambledTitle(initialTitle))
 
     if (scrambleTlRef.current) {
       scrambleTlRef.current.kill()
@@ -39,7 +39,7 @@ function Hero() {
 
 
     if (reducedMotion) {
-      return
+      return () => cancelAnimationFrame(initialId)
     }
 
     const characters = titleText
@@ -95,6 +95,7 @@ function Hero() {
     })
 
     return () => {
+      cancelAnimationFrame(initialId)
       if (scrambleTlRef.current) {
         scrambleTlRef.current.kill()
         scrambleTlRef.current = null

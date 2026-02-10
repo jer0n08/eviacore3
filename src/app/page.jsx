@@ -10,12 +10,10 @@ import {
   AccordionTrigger,
 } from '../components/ui/accordion'
 import { useLanguage } from '../contexts/LanguageContext'
-import processSheet from '../assets/process-sheet.png'
 
 export default function HomePage() {
   const { t } = useLanguage()
   const overview = t('home.overview')
-  const steps = t('home.steps')
   const support = t('home.support')
   const faq = t('home.faq')
 
