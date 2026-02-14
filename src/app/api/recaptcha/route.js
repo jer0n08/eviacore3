@@ -1,5 +1,5 @@
 export async function POST(request) {
-  const secret = process.env.RECAPTCHA_SECRET_KEY
+  const secret = globalThis?.process?.env?.RECAPTCHA_SECRET_KEY
   if (!secret) {
     return Response.json({ success: false, error: 'missing-secret' }, { status: 500 })
   }
@@ -7,7 +7,7 @@ export async function POST(request) {
   let payload
   try {
     payload = await request.json()
-  } catch (error) {
+  } catch (_error) {
     return Response.json({ success: false, error: 'invalid-json' }, { status: 400 })
   }
 
@@ -41,7 +41,7 @@ export async function POST(request) {
       return Response.json({ success: false, error: 'action-mismatch' }, { status: 400 })
     }
     return Response.json({ success: true })
-  } catch (error) {
+  } catch (_error) {
     return Response.json({ success: false, error: 'verify-error' }, { status: 500 })
   }
 }

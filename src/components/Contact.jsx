@@ -1,16 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Script from 'next/script'
 import { useLanguage } from '../contexts/LanguageContext'
 
 function Contact() {
   const { language, t } = useLanguage()
-  const [captchaToken, setCaptchaToken] = useState('')
   const [captchaError, setCaptchaError] = useState('')
   const [submitMessage, setSubmitMessage] = useState('')
   const siteKey =
-    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+    globalThis?.process?.env?.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
     '6LfdM2YsAAAAAFf_HYPC4wE-yWleyzfnYC7Bojmp'
 
   const getRecaptchaClient = () => {
@@ -18,15 +17,6 @@ function Contact() {
     if (!window.grecaptcha) return null
     return window.grecaptcha
   }
-
-  useEffect(() => {
-    if (!siteKey) return
-    const recaptcha = getRecaptchaClient()
-    if (!recaptcha) return
-    recaptcha.ready(() => {
-      setCaptchaToken('')
-    })
-  }, [siteKey])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -43,7 +33,6 @@ function Contact() {
     }
     try {
       const token = await recaptcha.execute(siteKey, { action: 'contact' })
-      setCaptchaToken(token)
       setCaptchaError('')
       const response = await fetch('/api/recaptcha', {
         method: 'POST',
@@ -57,7 +46,7 @@ function Contact() {
         setSubmitMessage('')
         return
       }
-    } catch (error) {
+    } catch (_error) {
       setCaptchaError(t('contact.form.recaptchaError'))
       setSubmitMessage('')
       return
