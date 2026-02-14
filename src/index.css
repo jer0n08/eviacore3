@@ -2,14 +2,6 @@
 
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Geist Pixel Circle';
-  src: url('./fonts/GeistPixel-Circle.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   font-family: 'Geist', 'Space Grotesk', 'Segoe UI', sans-serif;
   line-height: 1.6;
@@ -238,6 +230,8 @@ section {
 
 .nav-links a {
   transition: color 0.2s ease;
+  text-decoration: none;
+  position: relative;
 }
 
 .nav-links a:hover {
@@ -246,6 +240,25 @@ section {
 
 .nav-links a.active {
   color: #fff;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #f6c94a;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-links a.active::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .nav-cta {
@@ -259,6 +272,33 @@ section {
   letter-spacing: 0.08em;
   box-shadow: 0 6px 14px rgba(246, 201, 74, 0.16);
 }
+
+.cta-arrow {
+  position: relative;
+  padding-right: 28px;
+  transition: padding-right 0.2s ease;
+}
+
+
+.cta-arrow-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.cta-arrow:hover .cta-arrow-icon {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.cta-arrow:hover {
+  padding-right: 44px;
+}
+
 
 .lang-switch {
   display: flex;
@@ -543,10 +583,6 @@ h3 {
 
 .font-geist {
   font-family: 'Geist', 'Space Grotesk', 'Segoe UI', sans-serif;
-}
-
-.font-geist-pixel {
-  font-family: 'Geist Pixel Circle', 'Space Mono', 'IBM Plex Mono', monospace;
 }
 
 @keyframes accordion-down {
@@ -1361,6 +1397,7 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.75rem;
+  margin-left: auto;
 }
 
 .footer-links a {
@@ -1564,6 +1601,11 @@ h3 {
 
   .process-flow-item {
     max-width: 520px;
+  }
+
+  .footer-links {
+    margin-left: 0;
+    align-self: flex-start;
   }
 }
 

@@ -6,7 +6,6 @@ import setupIcon from '../assets/services-step-setup.png'
 import settingsIcon from '../assets/services-step-settings.png'
 import trackIcon from '../assets/services-step-track.png'
 import deliveryIcon from '../assets/services-step-delivery.png'
-import rightChevron from '../assets/right-chevron.png'
 
 function Services() {
   const { language, t } = useLanguage()
@@ -253,64 +252,77 @@ function Services() {
 
   return (
     <section className="services" id="services" key={language}>
-      <div className="container">
+      <div className="mx-auto w-11/12 max-w-6xl">
         <div className="section-heading">
           <p className="eyebrow">{t('services.steps.eyebrow')}</p>
           <h2>{t('services.steps.title')}</h2>
         </div>
-        <div className="services-steps">
+        <div className="grid gap-6 lg:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={step.title} className="services-step-item">
-              <article className="services-step-card">
-                <div className="services-step-icon" aria-hidden="true">
-                  {index === 0 && (
-                    <img src={setupIcon.src} alt="" aria-hidden="true" loading="lazy" draggable="false" />
-                  )}
-                  {index === 1 && (
-                    <img
-                      src={settingsIcon.src}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      draggable="false"
-                    />
-                  )}
-                  {index === 2 && (
-                    <img src={trackIcon.src} alt="" aria-hidden="true" loading="lazy" draggable="false" />
-                  )}
-                  {index === 3 && (
-                    <img
-                      src={deliveryIcon.src}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      draggable="false"
-                    />
-                  )}
-                </div>
-                <div className="services-step-text">
-                  <h3>
-                    <span className="services-step-count">{index + 1}</span>
-                    {step.title}
-                  </h3>
-                  <p>{step.text}</p>
-                </div>
-              </article>
-              {index < steps.length - 1 && (
-                <span
-                  className={`services-step-arrow${index === 1 ? ' is-mid' : ''}`}
-                  aria-hidden="true"
-                >
+            <article
+              key={step.title}
+              className={`rounded-none px-7 py-12 ${
+                index % 2 === 0
+                  ? 'border-[#F6C94A] bg-[#F6C94A] text-neutral-900'
+                  : 'border-white/10 bg-neutral-950 text-white'
+              }`}
+            >
+              <div className="mb-4 flex w-full items-center justify-center" aria-hidden="true">
+                {index === 0 && (
                   <img
-                    src={rightChevron.src}
+                    src={setupIcon.src}
                     alt=""
+                    className="h-18 w-18"
                     aria-hidden="true"
                     loading="lazy"
                     draggable="false"
                   />
+                )}
+                {index === 1 && (
+                  <img
+                    src={settingsIcon.src}
+                    alt=""
+                    className="h-18 w-18"
+                    aria-hidden="true"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                )}
+                {index === 2 && (
+                  <img
+                    src={trackIcon.src}
+                    alt=""
+                    className="h-18 w-18"
+                    aria-hidden="true"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                )}
+                {index === 3 && (
+                  <img
+                    src={deliveryIcon.src}
+                    alt=""
+                    className="h-18 w-18"
+                    aria-hidden="true"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                )}
+              </div>
+              <h3 className="mb-3 font-mono tracking-tight">
+                <span
+                  className={`mb-2 block text-xs uppercase tracking-widest ${
+                    index % 2 === 0 ? 'text-neutral-900' : 'text-[#F6C94A]'
+                  }`}
+                >
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-              )}
-            </div>
+                {step.title}
+              </h3>
+              <p className={index % 2 === 0 ? 'text-neutral-800' : 'text-slate-300'}>
+                {step.text}
+              </p>
+            </article>
           ))}
         </div>
       </div>

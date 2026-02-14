@@ -1,23 +1,67 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Script from 'next/script'
 import { useLanguage } from '../contexts/LanguageContext'
 
 function Contact() {
   const { language, t } = useLanguage()
-  const [antiSpamAnswer, setAntiSpamAnswer] = useState('')
-  const [antiSpamError, setAntiSpamError] = useState('')
+  const [captchaToken, setCaptchaToken] = useState('')
+  const [captchaError, setCaptchaError] = useState('')
   const [submitMessage, setSubmitMessage] = useState('')
+  const siteKey =
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+    '6LfdM2YsAAAAAFf_HYPC4wE-yWleyzfnYC7Bojmp'
 
-  const handleSubmit = (event) => {
+  const getRecaptchaClient = () => {
+    if (typeof window === 'undefined') return null
+    if (!window.grecaptcha) return null
+    return window.grecaptcha
+  }
+
+  useEffect(() => {
+    if (!siteKey) return
+    const recaptcha = getRecaptchaClient()
+    if (!recaptcha) return
+    recaptcha.ready(() => {
+      setCaptchaToken('')
+    })
+  }, [siteKey])
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    const normalized = antiSpamAnswer.trim().replace(',', '.')
-    if (normalized !== '5') {
-      setAntiSpamError(t('contact.form.antiSpamError'))
+    if (!siteKey) {
+      setCaptchaError(t('contact.form.recaptchaMissing'))
       setSubmitMessage('')
       return
     }
-    setAntiSpamError('')
+    const recaptcha = getRecaptchaClient()
+    if (!recaptcha) {
+      setCaptchaError(t('contact.form.recaptchaError'))
+      setSubmitMessage('')
+      return
+    }
+    try {
+      const token = await recaptcha.execute(siteKey, { action: 'contact' })
+      setCaptchaToken(token)
+      setCaptchaError('')
+      const response = await fetch('/api/recaptcha', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+      })
+      const payload = await response.json().catch(() => null)
+      if (!response.ok) {
+        const detail = payload?.error ? ` (${payload.error})` : ''
+        setCaptchaError(`${t('contact.form.recaptchaError')}${detail}`)
+        setSubmitMessage('')
+        return
+      }
+    } catch (error) {
+      setCaptchaError(t('contact.form.recaptchaError'))
+      setSubmitMessage('')
+      return
+    }
     setSubmitMessage(t('contact.form.successMessage'))
   }
 
@@ -53,6 +97,14 @@ function Contact() {
           className="grid gap-5 rounded-none border border-white/10 bg-neutral-950/70 p-7 shadow-2xl"
           onSubmit={handleSubmit}
         >
+          {siteKey ? (
+            <Script
+              key={language}
+              src={`https://www.google.com/recaptcha/api.js?render=${siteKey}&hl=${language}`}
+              async
+              defer
+            />
+          ) : null}
           <label className="grid gap-2 text-sm text-slate-300">
             {t('contact.form.name')}
             <input
@@ -77,30 +129,19 @@ function Contact() {
               placeholder={t('contact.form.messagePlaceholder')}
             />
           </label>
-          <label className="grid gap-2 text-sm text-slate-300">
-            {t('contact.form.antiSpamLabel')}
-            <input
-              className="rounded-xl border border-white/10 bg-transparent px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-amber-300/40"
-              type="text"
-              placeholder={t('contact.form.antiSpamPlaceholder')}
-              aria-label={t('contact.form.antiSpamQuestion')}
-              value={antiSpamAnswer}
-              onChange={(event) => {
-                setAntiSpamAnswer(event.target.value)
-                if (antiSpamError) {
-                  setAntiSpamError('')
-                }
-              }}
-            />
-            <span className="text-xs text-slate-400">
-              {t('contact.form.antiSpamQuestion')}
-            </span>
-            {antiSpamError ? (
+          <div className="grid gap-2 text-sm text-slate-300">
+            <span>{t('contact.form.recaptchaLabel')}</span>
+            {!siteKey ? (
               <span className="text-xs text-amber-300">
-                {antiSpamError}
+                {t('contact.form.recaptchaMissing')}
               </span>
             ) : null}
-          </label>
+            {captchaError ? (
+              <span className="text-xs text-amber-300">
+                {captchaError}
+              </span>
+            ) : null}
+          </div>
           {submitMessage ? (
             <p className="border border-amber-300/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-300">
               {submitMessage}

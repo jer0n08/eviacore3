@@ -7,19 +7,33 @@ import { useLanguage } from '../contexts/LanguageContext'
 const Footer = forwardRef(function Footer(_props, ref) {
   const { language, t } = useLanguage()
 
+  const tagline = t('footer.tagline')
+  const address = t('footer.address')
+  const rights = t('footer.rights')
+  const rightsLines = rights.split('\n')
+
   return (
     <footer className="footer" key={language} ref={ref}>
       <div className="container footer-inner">
-        <div className="footer-meta">
-          <p>{t('footer.tagline')}</p>
-          <p className="footer-address">{t('footer.address')}</p>
-        </div>
+        {tagline || address ? (
+          <div className="footer-meta">
+            {tagline ? <p>{tagline}</p> : null}
+            {address ? <p className="footer-address">{address}</p> : null}
+          </div>
+        ) : null}
+        <p className="footer-rights">
+          {rightsLines.map((line, index) => (
+            <span key={`${line}-${index}`}>
+              {line}
+              {index < rightsLines.length - 1 ? <br /> : null}
+            </span>
+          ))}
+        </p>
         <div className="footer-links">
           <a href="/cgv">{t('footer.cgv')}</a>
           <a href="/mentions-legales">{t('footer.legal')}</a>
           <a href="/privacy-policy">{t('footer.privacy')}</a>
         </div>
-        <p className="footer-rights">{t('footer.rights')}</p>
       </div>
       <button
         className="scroll-top-button"

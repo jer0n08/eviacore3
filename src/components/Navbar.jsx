@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { ArrowRight } from 'lucide-react'
 import logo from '../assets/evia-logo.png'
 import { useLanguage } from '../contexts/LanguageContext'
 
@@ -107,13 +108,14 @@ function Navbar() {
               </button>
             </div>
             <a
-              className="nav-cta rounded-none"
+              className="nav-cta cta-arrow rounded-none"
               href="https://app.eviacore.com"
               target="_blank"
               rel="noreferrer"
               onClick={handleNavigate}
             >
               {t('nav.cta')}
+              <ArrowRight className="cta-arrow-icon" size={16} aria-hidden="true" />
             </a>
           </div>
 
@@ -183,13 +185,14 @@ function Navbar() {
               </button>
             </div>
             <a
-              className="mobile-cta rounded-none"
+              className="mobile-cta cta-arrow rounded-none"
               href="https://app.eviacore.com"
               target="_blank"
               rel="noreferrer"
               onClick={handleNavigate}
             >
               {t('nav.cta')}
+              <ArrowRight className="cta-arrow-icon" size={16} aria-hidden="true" />
             </a>
           </nav>
         </div>

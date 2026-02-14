@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import servicesHeroImage from '../assets/services-hero.png'
 
@@ -32,12 +33,13 @@ function ServicesHero() {
           </div>
           <div className="hero-actions justify-center">
             <Link
-              className="inline-flex h-12 items-center justify-center bg-[#F6C94A] px-6 text-sm font-semibold uppercase tracking-widest text-black shadow-lg transition hover:-translate-y-0.5 hover:bg-[#F6C94A] hover:shadow-xl"
+              className="cta-arrow inline-flex h-12 items-center justify-center bg-[#F6C94A] px-6 text-sm font-semibold uppercase tracking-widest text-black shadow-lg"
               href="https://app.eviacore.com"
               target="_blank"
               rel="noreferrer"
             >
               {t('servicesHero.primaryCta')}
+              <ArrowRight className="cta-arrow-icon" size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>
