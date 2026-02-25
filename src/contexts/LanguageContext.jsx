@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useMemo } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import translations from '../data/translations'
 
 const LanguageContext = createContext(null)
@@ -18,7 +18,6 @@ const getLanguageFromPath = (pathname) => {
 
 export function LanguageProvider({ children }) {
   const pathname = usePathname() || '/'
-  const searchParams = useSearchParams()
   const router = useRouter()
   const language = useMemo(() => getLanguageFromPath(pathname), [pathname])
 
@@ -52,15 +51,11 @@ export function LanguageProvider({ children }) {
       if (!nextPath.startsWith('/')) {
         nextPath = `/${nextPath}`
       }
-      const query = searchParams?.toString()
-      if (query) {
-        nextPath = `${nextPath}?${query}`
-      }
       router.push(nextPath)
     }
 
     return { language, setLanguage, t }
-  }, [language, pathname, router, searchParams])
+  }, [language, pathname, router])
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }
