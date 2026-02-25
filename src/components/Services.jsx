@@ -2,10 +2,10 @@
 
 import { useEffect } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
-import setupIcon from '../assets/services-step-setup.png'
-import settingsIcon from '../assets/services-step-settings.png'
-import trackIcon from '../assets/services-step-track.png'
-import deliveryIcon from '../assets/services-step-delivery.png'
+import setupIcon from '../assets/evia-service-step-setup.png'
+import settingsIcon from '../assets/evia-service-step-settings.png'
+import trackIcon from '../assets/evia-service-step-tracking.png'
+import deliveryIcon from '../assets/evia-service-step-delivery.png'
 
 function Services() {
   const { language, t } = useLanguage()
@@ -14,6 +14,7 @@ function Services() {
   const timelineStepsFabrication = t('services.timelineFabrication.items')
   const timelineTitle = t('services.timelineOnline.title')
   const fabricationTitle = t('services.timelineFabrication.title')
+  const assemblyFeatures = t('services.assemblyFeatures')
   const timelinePairs = timelineSteps.reduce((rows, step, index) => {
     if (index % 2 === 0) {
       rows.push([step])
@@ -415,6 +416,31 @@ function Services() {
                       </>
                     )}
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="assembly-features" aria-labelledby="assembly-features-title">
+          <div className="container">
+            <div className="assembly-features-heading">
+              <h2 id="assembly-features-title">{assemblyFeatures.title}</h2>
+            </div>
+            <div className="assembly-features-grid">
+              {assemblyFeatures.groups.map((group) => (
+                <div key={group.title} className="assembly-feature-group">
+                  <div className="assembly-feature-title">
+                    <h3>{group.title}</h3>
+                    <span className="assembly-feature-divider" aria-hidden="true" />
+                  </div>
+                  <ul className="assembly-feature-list">
+                    {group.items.map((item) => (
+                      <li key={item}>
+                        <span className="feature-check" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

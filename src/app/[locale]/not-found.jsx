@@ -1,6 +1,12 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function NotFound() {
+  const pathname = usePathname() || '/'
+  const segment = pathname.split('/')[1]
+  const locale = segment === 'en' || segment === 'fr' ? segment : 'fr'
   return (
     <section className="page" id="not-found">
       <div className="container section-spacing">
@@ -12,7 +18,7 @@ export default function NotFound() {
           </p>
           <Link
             className="inline-flex h-12 items-center justify-center bg-[#F6C94A] px-6 text-sm font-semibold uppercase tracking-widest text-black shadow-lg transition hover:-translate-y-0.5 hover:bg-[#F6C94A] hover:shadow-xl"
-            href="/"
+            href={`/${locale}`}
           >
             Retour a l'accueil
           </Link>

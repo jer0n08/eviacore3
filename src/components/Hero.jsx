@@ -32,7 +32,7 @@ function Hero() {
             </a>
             <a
               className="cta-arrow inline-flex h-12 items-center justify-center border border-white/10 bg-transparent px-6 text-sm font-semibold uppercase tracking-widest text-white"
-              href="/services"
+              href={`/${language}/services`}
             >
               {t('hero.secondaryCta')}
               <ArrowRight className="cta-arrow-icon" size={16} aria-hidden="true" />

@@ -2,14 +2,14 @@
 
 import { useEffect } from 'react'
 import { CircuitBoard, ClipboardList, FileChartColumn } from 'lucide-react'
-import Hero from '../components/Hero'
+import Hero from '../../components/Hero'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../components/ui/accordion'
-import { useLanguage } from '../contexts/LanguageContext'
+} from '../../components/ui/accordion'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export default function HomePage() {
   const { t } = useLanguage()

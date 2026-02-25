@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
-import servicesHeroImage from '../assets/services-hero.png'
+import servicesHeroImage from '../assets/evia-services-hero.png'
 
 function ServicesHero() {
   const { language, t } = useLanguage()

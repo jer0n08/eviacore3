@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect } from 'react'
-import Contact from '../../components/Contact'
+import Services from '../../../components/Services'
+import ServicesHero from '../../../components/ServicesHero'
 
-export default function ContactPage() {
+export default function ServicesPage() {
   useEffect(() => {
     document.body.classList.add('services-theme')
     return () => {
@@ -12,8 +13,9 @@ export default function ContactPage() {
   }, [])
 
   return (
-    <section className="page" id="contact">
-      <Contact />
+    <section className="page" id="services">
+      <ServicesHero />
+      <Services />
     </section>
   )
 }

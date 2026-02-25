@@ -4,26 +4,22 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
-import logo from '../assets/evia-logo.png'
+import logo from '../assets/evia-logo-primary.png'
 import { useLanguage } from '../contexts/LanguageContext'
 
 function Navbar() {
   const { language, setLanguage, t } = useLanguage()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(() => {
-    if (typeof window === 'undefined') return false
-    const current =
-      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-    return current > 8
-  })
+  const [isScrolled, setIsScrolled] = useState(false)
   const navRef = useRef(null)
   const [navHeight, setNavHeight] = useState(0)
   const pathname = usePathname()
+  const localePrefix = `/${language}`
 
   const navItems = [
-    { label: t('nav.home'), href: '/' },
-    { label: t('nav.services'), href: '/services' },
-    { label: t('nav.contact'), href: '/contact' },
+    { label: t('nav.home'), href: localePrefix },
+    { label: t('nav.services'), href: `${localePrefix}/services` },
+    { label: t('nav.contact'), href: `${localePrefix}/contact` },
   ]
 
   const handleToggle = () => {
@@ -43,6 +39,7 @@ function Navbar() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     document.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => {
       window.removeEventListener('scroll', handleScroll)
       document.removeEventListener('scroll', handleScroll)
@@ -69,10 +66,10 @@ function Navbar() {
     <>
       <header
         ref={navRef}
-        className={`navbar ${isScrolled ? 'is-scrolled' : 'at-top'}${pathname === '/' ? ' is-home' : ''}${menuOpen ? ' menu-open' : ''}`}
+        className={`navbar ${isScrolled ? 'is-scrolled' : 'at-top'}${pathname === localePrefix ? ' is-home' : ''}${menuOpen ? ' menu-open' : ''}`}
       >
         <div className="nav-inner container">
-          <Link className="brand" href="/" onClick={handleNavigate}>
+          <Link className="brand" href={localePrefix} onClick={handleNavigate}>
             <img src={logo.src} alt="Logo EVIACORE" />
           </Link>
 

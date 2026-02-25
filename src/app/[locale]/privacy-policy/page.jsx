@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useLanguage } from '../../contexts/LanguageContext'
+import { useLanguage } from '../../../contexts/LanguageContext'
 
-export default function CgvPage() {
+export default function PrivacyPolicyPage() {
   const { language, t } = useLanguage()
-  const data = t('cgvPage')
+  const data = t('privacyPage')
 
   useEffect(() => {
     document.body.classList.add('home-theme')
@@ -15,7 +15,7 @@ export default function CgvPage() {
   }, [])
 
   return (
-    <section className="page" id="cgv" key={language}>
+    <section className="page" id="privacy-policy" key={language}>
       <div className="container section-spacing">
         <div className="mb-10 max-w-3xl">
           <p className="mb-4 text-xs uppercase tracking-widest text-slate-400">

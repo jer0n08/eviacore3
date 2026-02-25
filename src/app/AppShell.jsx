@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -10,11 +10,16 @@ import { LanguageProvider } from '../contexts/LanguageContext'
 function AppShell({ children }) {
   const footerRef = useRef(null)
   const pathname = usePathname()
+  const normalizedPath = useMemo(() => {
+    if (!pathname) return '/'
+    const stripped = pathname.replace(/^\/(fr|en)(?=\/|$)/, '')
+    return stripped === '' ? '/' : stripped
+  }, [pathname])
   const hideFooterCta = [
     '/cgv',
     '/mentions-legales',
     '/privacy-policy',
-  ].includes(pathname)
+  ].includes(normalizedPath)
 
   return (
     <LanguageProvider>

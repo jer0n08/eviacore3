@@ -6,6 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext'
 
 const Footer = forwardRef(function Footer(_props, ref) {
   const { language, t } = useLanguage()
+  const localePrefix = `/${language}`
 
   const tagline = t('footer.tagline')
   const address = t('footer.address')
@@ -30,9 +31,9 @@ const Footer = forwardRef(function Footer(_props, ref) {
           ))}
         </p>
         <div className="footer-links">
-          <a href="/cgv">{t('footer.cgv')}</a>
-          <a href="/mentions-legales">{t('footer.legal')}</a>
-          <a href="/privacy-policy">{t('footer.privacy')}</a>
+          <a href={`${localePrefix}/cgv`}>{t('footer.cgv')}</a>
+          <a href={`${localePrefix}/mentions-legales`}>{t('footer.legal')}</a>
+          <a href={`${localePrefix}/privacy-policy`}>{t('footer.privacy')}</a>
         </div>
       </div>
       <button

@@ -11,7 +11,7 @@ const translations = {
       eyebrow: 'Fabricant de cartes électroniques',
       title: 'Votre VIA entre la conception et le PCBA',
       lead:
-        "Chaque projet commandé via la plateforme EVIACORE™ bénéficie d'un accompagnement technique direct, bien au-delà d'une simple prestation d'assemblage.",
+        'EVIACORE® est un fabricant de cartes électroniques. Nous fabriquons vos PCB, assemblons vos cartes et gérons l’approvisionnement des composants. Chaque projet commandé via la plateforme EVIACORE® bénéficie d’un accompagnement technique direct, bien au-delà d’une simple prestation d’assemblage.',
       primaryCta: 'ACCEDER A MON ESPACE',
       secondaryCta: 'Voir nos services',
 
@@ -38,7 +38,7 @@ const translations = {
           },
           {
             title: 'Suivi live',
-            text: "Suivez chaque étape, du prototype à la production série.",
+            text: "Suivez chaque étape de votre projet en temps réel.",
           },
         ],
       },
@@ -72,7 +72,7 @@ const translations = {
         cards: [
           {
             title: 'Analyse avant production',
-            text: "Avant production, EVIACORE™ analyse les dossiers et apporte des retours concrets sur la fabricabilité, le choix des composants et leur aptitude à la brasure. Des conseils sont proposés pour optimiser la carte en vue de la production et de la conformité.",
+            text: "Avant production, EVIACORE® analyse les dossiers et apporte des retours concrets sur la fabricabilité, le choix des composants et leur aptitude à la brasure. Des conseils sont proposés pour optimiser la carte en vue de la production et de la conformité.",
           },
           {
             title: 'Assemblage CMS automatisé',
@@ -96,20 +96,26 @@ const translations = {
               'Gerbers ou ODB++, nomenclature (BOM), fichier de placement et contraintes critiques. Nous vérifions la complétude et vous alertons si des éléments manquent.',
           },
           {
-            question: 'Quel est le délai moyen pour un prototype ?',
+            question: 'Pouvons-nous fournir nos composants ?',
             answer:
-              'Un prototype est généralement pris en charge en quelques jours. Le délai exact dépend des composants et du niveau de test demandé.',
+              'Oui. Vous pouvez fournir vos composants et/ou vos PCB, partiellement ou en totalité. Nous pouvons aussi prendre en charge l\'approvisionnement (PCB et composants) auprès de nos fournisseurs aux meilleurs prix.',
+          },
+          {
+            question: 'Quel est le délai moyen pour un assemblage ?',
+            answer:
+              'Nous pouvons faire votre projet dans un délai très court, vous pouvez choisir le délai souhaité au moment du passage de la commande.',
           },
           {
             question: 'Comment assurez-vous la qualité d\'assemblage ?',
             answer:
-              'IPC-A-610, et revue technique avant lancement. Chaque lot est suivi et documenté.',
+              'Nous respectons les normes IPC, et effectuons un contrôle sous RX systématiquement pour votre projet.',
           },
           {
             question: 'Pouvez-vous gérer des petites séries ?',
             answer:
-              'Oui. Pas de quantité minimale imposée : vous adaptez volumes et fenêtres de production selon votre planning.',
+              'Oui. Pas de quantité minimale imposée.',
           },
+          
         ],
       },
     },
@@ -122,7 +128,7 @@ const translations = {
         items: [
           {
             title: 'Configurez votre projet en ligne',
-            text: 'Plateforme web EVIACORE™. Chiffrage en ligne.',
+            text: 'Plateforme web EVIACORE®. Chiffrage en ligne.',
           },
           {
             title: 'Validez vos quantités et délais',
@@ -153,69 +159,102 @@ const translations = {
         },
       ],
       timelineOnline: {
-        title: 'Créez votre projet en ligne',
+        title: 'Création du projet en ligne, de la config à la validation',
         items: [
           {
-            title: 'Spécification PCB',
-            text: 'Définissez simplement votre PCB standard ou complexe, dimensions, 1 à 16 couches...',
+            title: 'Spécification PCB et contraintes clés',
+            text: 'Définissez votre PCB standard ou complexe : dimensions, 1 à 24 couches, stackup, impédances et options critiques.',
           },
           {
-            title: 'Importation de nomenclature',
-            text: "Importez votre fichier, l'algorithme EVIACORE™ se charge de trouver les composants disponibles et au meilleur prix.",
+            title: 'Importation de la nomenclature (BOM)',
+            text: "Importez votre BOM : l'algorithme EVIACORE® sélectionne les composants disponibles, compatibles et au meilleur prix.",
           },
           {
-            title: 'Fichiers de fabrication',
-            text: "Importez les fichiers nécessaires à la fabrication, Gerbers/ODB++, plan d'implantation, fichier de placement.",
+            title: 'Fichiers de fabrication et placement',
+            text: "Chargez Gerbers/ODB++, plan d'implantation et fichier de placement pour un dossier complet et exploitable.",
           },
           {
-            title: 'Price Optimizer',
-            text: "C'est un outil unique. EVIACORE™ analyse le coût de revient en fonction du délai, de la quantité et en tenant compte des meilleures offres de nos fournisseurs.",
+            title: 'Price Optimizer pour piloter le coût',
+            text: "EVIACORE® calcule le coût selon délai et quantité, en s'appuyant sur les meilleures offres fournisseurs.",
           },
           {
-            title: 'Commande en ligne',
-            text: "Validez et payez votre commande en ligne, éditez un devis PDF, partagez votre panier avec vos collègues.",
+            title: 'Validation, devis et commande en ligne',
+            text: 'Validez et payez en ligne, éditez un devis PDF, partagez votre panier en interne si besoin.',
           },
           {
-            title: 'Suivez la fabrication et la livraison',
-            text: "Restez informé de l'avancement de votre commande depuis votre compte web, recevez des notifications.",
+            title: 'Suivi fabrication & livraison en temps réel',
+            text: "Suivez l'avancement depuis votre compte web, avec notifications sur les étapes clés.",
           },
         ],
       },
       timelineFabrication: {
-        title: 'Fabrication',
+        title: 'Fabrication et contrôles, étape par étape',
         items: [
           {
-            title: "Contrôle d'entrée / préparation",
-            text: 'Tous les composants sont comptés et reconditionnés pour être posés par une machine de placement CMS.',
+            title: "Contrôle d'entrée et préparation des composants",
+            text: 'Les composants sont comptés, vérifiés, reconditionnés et préparés pour le placement CMS.',
           },
           {
-            title: 'Dépôt de pâte à braser',
-            text: "Nous déposons la pâte à braser à l'aide de notre jetting, nous n'utilisons pas de pochoirs.",
+            title: 'Dépôt de pâte à braser par jetting',
+            text: 'Dépôt par jetting, sans pochoir, pour un process flexible et précis.',
           },
           {
-            title: 'Placement CMS',
-            text: "Placement de vos composants sur ligne automatisée.",
+            title: 'Placement CMS sur ligne automatisée',
+            text: 'Placement automatique des composants avec contrôle de précision et de cadence.',
           },
           {
-            title: 'Four à refusion',
-            text: 'Four à phase vapeur qui respecte un profil de température JEDEC, vérifié tous les jours par un profileur.',
+            title: 'Refusion en four à phase vapeur',
+            text: 'Profil JEDEC maîtrisé, vérifié quotidiennement par un profileur.',
           },
 
           {
-            title: 'Inspection rayons X',
-            text: "Nous effectuons les radiographies nous même, en se déplaçant chez un prestataire dans l'attente de reçevoir notre RX.",
+            title: 'Inspection par rayons X',
+            text: "Radiographies réalisées par nos soins, avec un prestataire partenaire en attendant notre RX.",
           },
           {
-            title: 'Insertion traversante',
-            text: 'Les broches des composants traversants sont préformées et sectionnées.',
+            title: 'Insertion traversante et finition',
+            text: 'Broches traversantes préformées, sectionnées et préparées pour l’assemblage.',
           },
           {
-            title: 'Inspection visuelle',
-            text: "L'assemblage est contrôlé suivant les critères des normes IPC.",
+            title: 'Inspection visuelle selon IPC',
+            text: 'Contrôle visuel systématique selon les critères des normes IPC.',
           },
           {
-            title: 'Emballage et expédition',
-            text: 'Votre commande est emballée en sachet antistatique et expédiée par transporteur express.',
+            title: 'Emballage antistatique et expédition express',
+            text: 'Protection antistatique, conditionnement soigné et expédition express.',
+          },
+        ],
+      },
+      assemblyFeatures: {
+        title: "Caractéristiques de l'assemblage PCB",
+        groups: [
+          {
+            title: 'PCB',
+            items: [
+              '5x5mm à 508x440mm',
+              'Impédances contrôlées',
+              'FR4, CEM, Roger',
+              'Stackup spécifique',
+              'Rigid, SMI, Rigid-Flex',
+              'ENIG (NiAu), HAL, Sn, Ag',
+              'Vernis vert, blanc, noir, rouge...',
+              '1 à 24 couches',
+              'Via filled, µVia laser, via borgnes/enterrés',
+            ],
+          },
+          {
+            title: 'Assemblage',
+            items: [
+              'CMS, Traversant, PressFit',
+              '2 Machines de placement Mycronics',
+              '21 000 composants/heure par machine',
+              'BGA, µBGA, LGA, QFN, 0201...',
+              'Fine Pitch 0,3mm',
+            ],
+          },
+          {
+            title: 'Contrôle',
+            items: ['Selon les normes IPC', "Inspection à Rayons X chez un prestataire"],
           },
         ],
       },
@@ -224,7 +263,7 @@ const translations = {
       eyebrow: 'Assemblage électronique',
       title: 'Lancez vos cartes en production avec un pilotage clair.',
       lead:
-        "Chiffrez, assemblez et suivez chaque étape de vos cartes électroniques depuis une interface unique, avec une production locale et des délais maîtrisés.",
+        "Chiffrez, assemblez et suivez chaque étape de vos cartes électroniques depuis une interface unique, avec une production locale et des délais maîtrisés. Assemblage PCBA et approvisionnement composants pilotés par nos équipes.",
       tags: ['Délai court', 'Traçabilité totale', 'Support expert'],
       primaryCta: 'Démarrer un projet',
       secondaryCta: 'Voir les services',
@@ -249,6 +288,8 @@ const translations = {
         recaptchaError: 'Merci de valider le recaptcha pour envoyer le formulaire.',
         recaptchaMissing: 'Recaptcha non configure. Ajoutez la cle site.',
         successMessage: 'Votre message a été envoyé, merci.',
+        submitError: "Une erreur est survenue. Merci de reessayer.",
+        sending: 'Envoi en cours...',
         submit: 'Envoyer la demande',
       },
     },
@@ -260,7 +301,7 @@ const translations = {
       privacy: 'Données personnelles',
       ctaText: 'Vous avez un besoin de PCBA ? Connectez-vous ici.',
       rights:
-        'EVIACORE™\n© 2026 – Tous droits réservés\n8 Allée Isaac Newton – 33650 Martillac\nSAS au capital de 30 000 € – RCS Bordeaux 994 666 436',
+        'EVIACORE®\n© 2026 – Tous droits réservés\n8 Allée Isaac Newton – 33650 Martillac\nSAS au capital de 30 000 € – RCS Bordeaux 994 666 436',
     },
     cgvPage: {
       eyebrow: 'CGV',
@@ -270,7 +311,7 @@ const translations = {
         {
           title: 'Article 1 – Objet',
           lines: [
-            'Les présentes CGV régissent les prestations d’assemblage électronique (PCBA), d’approvisionnement de composants et de services techniques réalisées par EVIACORE™ auprès d’une clientèle exclusivement professionnelle.',
+            'Les présentes CGV régissent les prestations d’assemblage électronique (PCBA), d’approvisionnement de composants et de services techniques réalisées par EVIACORE® auprès d’une clientèle exclusivement professionnelle.',
           ],
         },
         {
@@ -294,7 +335,7 @@ const translations = {
         {
           title: 'Article 4 – Nature de l’intervention',
           lines: [
-            'EVIACORE™™ intervient exclusivement en qualité de sous-traitant industriel chargé de l’assemblage.',
+            'EVIACORE® intervient exclusivement en qualité de sous-traitant industriel chargé de l’assemblage.',
             'La société n’assume aucune responsabilité relative :',
             'à la conception du produit,',
             'au schéma électronique,',
@@ -313,8 +354,8 @@ const translations = {
             'de la qualité,',
             'de l’authenticité,',
             'de la compatibilité.',
-            '5.2 Composants achetés par EVIACORE™',
-            'EVIACORE™ agit sur la base des références communiquées.',
+            '5.2 Composants achetés par EVIACORE®',
+            'EVIACORE® agit sur la base des références communiquées.',
             'La société ne pourra être tenue responsable :',
             'd’une erreur fournisseur,',
             'd’un lot défectueux,',
@@ -331,7 +372,7 @@ const translations = {
         {
           title: 'Article 7 – Réserve de propriété',
           lines: [
-            'Les produits livrés demeurent la propriété de EVIACORE™ jusqu’au paiement intégral des sommes dues.',
+            'Les produits livrés demeurent la propriété de EVIACORE® jusqu’au paiement intégral des sommes dues.',
           ],
         },
         {
@@ -357,7 +398,7 @@ const translations = {
         {
           title: 'Article 11 – Limitation de responsabilité',
           lines: [
-            'La responsabilité financière de EVIACORE™ est limitée au montant HT de la prestation concernée.',
+            'La responsabilité financière de EVIACORE® est limitée au montant HT de la prestation concernée.',
             'Sont exclus :',
             'pertes d’exploitation',
             'pertes de production',
@@ -369,7 +410,7 @@ const translations = {
         {
           title: 'Article 12 – Assurance RC Professionnelle',
           lines: [
-            'EVIACORE™ déclare être titulaire d’une assurance Responsabilité Civile Professionnelle couvrant les conséquences pécuniaires de sa responsabilité dans le cadre de son activité.',
+            'EVIACORE® déclare être titulaire d’une assurance Responsabilité Civile Professionnelle couvrant les conséquences pécuniaires de sa responsabilité dans le cadre de son activité.',
             'Cette assurance ne saurait étendre la responsabilité au-delà des limites prévues aux présentes CGV.',
             'Une attestation pourra être fournie sur demande.',
           ],
@@ -377,14 +418,14 @@ const translations = {
         {
           title: 'Article 13 – Confidentialité',
           lines: [
-            'EVIACORE™ s’engage à préserver la confidentialité des documents techniques transmis.',
+            'EVIACORE® s’engage à préserver la confidentialité des documents techniques transmis.',
             'Un NDA peut être signé sur demande.',
           ],
         },
         {
           title: 'Article 14 – Force majeure',
           lines: [
-            'EVIACORE™ ne pourra être tenue responsable en cas d’événement imprévisible, irrésistible et extérieur.',
+            'EVIACORE® ne pourra être tenue responsable en cas d’événement imprévisible, irrésistible et extérieur.',
           ],
         },
         {
@@ -409,10 +450,10 @@ const translations = {
         {
           title: 'Responsable du traitement',
           lines: [
-            'EVIACORE™',
+            'EVIACORE®',
             'SAS au capital de 30 000 €',
             'RCS Bordeaux 994 666 436',
-            'Email : contact@EVIACORE™.com',
+            'Email : contact@eviacore.com',
           ],
         },
         {
@@ -422,6 +463,7 @@ const translations = {
             'Données commerciales',
             'Documents techniques',
             'Logs de connexion',
+            'EVIACORE® et ses partenaires utilisent des cookies et technologies similaires pour mesurer l’audience, administrer le site, analyser les parcours et établir des statistiques globales. Vous pouvez gérer les cookies via les paramètres de votre navigateur.',
           ],
         },
         {
@@ -444,7 +486,7 @@ const translations = {
         {
           title: 'Destinataires',
           lines: [
-            'EVIACORE™ et ses prestataires techniques (O2Switch et OVH).',
+            'EVIACORE® et ses prestataires techniques (O2Switch et OVH).',
           ],
         },
         {
@@ -457,7 +499,7 @@ const translations = {
           title: 'Droits',
           lines: [
             'Droit d’accès, rectification, suppression, opposition.',
-            'Demande à adresser à : contact@EVIACORE™.com',
+            'Demande à adresser à : contact@eviacore.com',
           ],
         },
         {
@@ -470,18 +512,18 @@ const translations = {
     },
     legalPage: {
       eyebrow: 'Mentions légales',
-      title: 'MENTIONS LÉGALES – EVIACORE™™',
+      title: 'MENTIONS LÉGALES – EVIACORE®',
       lead: '',
       sections: [
         {
           title: '1. Éditeur du site',
           lines: [
-            'EVIACORE™™',
+            'EVIACORE®',
             'Société par Actions Simplifiée (SAS)',
             'Capital social : 30 000 €',
             'Immatriculée au RCS de Bordeaux sous le numéro 994 666 436',
             'Siège social : 8 Allée Isaac Newton – 33650 Martillac – France',
-            'Adresse e-mail : contact@EVIACORE™.com',
+            'Adresse e-mail : contact@eviacore.com',
             'Directeur de la publication :',
             'Monsieur Maxime Mérour, Président',
           ],
@@ -489,9 +531,9 @@ const translations = {
         {
           title: '2. Marque',
           lines: [
-            'La marque EVIACORE™™ fait l’objet d’une demande d’enregistrement auprès de l’INPI sous le numéro 25 5196343, déposée le 05 novembre 2025 et publiée au Bulletin Officiel de la Propriété Industrielle le 28 novembre 2025.',
+            'La marque EVIACORE® fait l’objet d’une demande d’enregistrement auprès de l’INPI sous le numéro 25 5196343, déposée le 05 novembre 2025 et publiée au Bulletin Officiel de la Propriété Industrielle le 28 novembre 2025.',
             'La marque est déposée au nom de Monsieur Maxime Mérour.',
-            'La société EVIACORE™ bénéficie d’un droit d’exploitation de ladite marque.',
+            'La société EVIACORE® bénéficie d’un droit d’exploitation de ladite marque.',
             'Toute reproduction, imitation ou exploitation sans autorisation écrite préalable est interdite.',
           ],
         },
@@ -514,7 +556,7 @@ const translations = {
         {
           title: '5. Responsabilité',
           lines: [
-            'EVIACORE™ ne saurait être tenue responsable :',
+            'EVIACORE® ne saurait être tenue responsable :',
             'des erreurs ou omissions,',
             'd’une interruption temporaire du site,',
             'des dommages directs ou indirects liés à l’utilisation du site,',
@@ -543,7 +585,7 @@ const translations = {
       eyebrow: 'Electronic board manufacturer',
       title: 'Your VIA between design and PCBA',
       lead:
-        'Every project ordered through the EVIACORE™ platform benefits from direct technical support, well beyond a simple assembly service.',
+        'EVIACORE® is an electronic board manufacturer. We manufacture your PCBs, assemble your boards, and manage component sourcing. Every project ordered through the EVIACORE® platform benefits from direct technical support, well beyond a simple assembly service.',
       primaryCta: 'ACCESS MY ACCOUNT',
       secondaryCta: 'View our services',
       stats: [
@@ -562,7 +604,7 @@ const translations = {
         eyebrow: 'Platform',
         title: 'A client experience that replaces the usual back-and-forth.',
         lead:
-          'Centralize files, revisions, and deliveries in one space with precise control over lead times and quantities.',
+          'Centralize your files, revisions, and deliveries in a single space, with precise control over lead times and quantities.',
         cards: [
           {
             title: 'Instant pricing',
@@ -574,7 +616,7 @@ const translations = {
           },
           {
             title: 'Live tracking',
-            text: 'Follow every stage from prototype to production runs.',
+            text: 'Follow every step of your project in real time.',
           },
         ],
       },
@@ -603,19 +645,19 @@ const translations = {
       support: {
         eyebrow: 'Support',
         title: 'Hands-on technical follow-up at every stage.',
-        lead: 'Faster decisions, lower risk, and production that keeps its promises.',
+        lead: 'Faster decisions, lower risk, and production that delivers as promised.',
         cards: [
           {
             title: 'Pre-production analysis',
-            text: 'Before production, EVIACORE™ reviews your files and provides concrete feedback on manufacturability, component selection, and solderability, plus optimization advice for compliance.',
+            text: 'Before production, EVIACORE® reviews the files and provides concrete feedback on manufacturability, component selection, and solderability, with recommendations to optimize the board for production and compliance.',
           },
           {
             title: 'Automated SMT assembly',
-            text: 'Assembly runs on fully automated SMT lines. We use jetting solder paste deposition without stencils or extra fees, delivering IPC-A-610 compliant quality.',
+            text: 'Assembly runs on fully automated SMT lines. We use jetting solder paste deposition with no stencil purchase or extra fees, delivering consistent IPC-A-610 compliant quality.',
           },
           {
             title: 'Flexible lead times',
-            text: 'Short, controlled lead times with no minimum quantities. Choose flexible production windows, adapt volumes, and keep clear visibility on every step.',
+            text: 'Short, controlled lead times with no minimum quantities. Choose flexible production windows, adjust volumes to your needs, and keep clear visibility on every step.',
           },
         ],
       },
@@ -631,19 +673,24 @@ const translations = {
               'Gerbers or ODB++, BOM, pick-and-place file, and critical constraints. We check completeness and flag anything missing.',
           },
           {
-            question: 'What is the typical prototype lead time?',
+            question: 'Can we supply our own components?',
             answer:
-              'Prototypes are usually handled within a few days. The exact timeline depends on parts availability and requested tests.',
+              'Yes. You can supply your components and/or PCBs, either partially or in full. We can also handle sourcing (PCBs and components) through our suppliers at the best prices.',
+          },
+          {
+            question: 'What is the typical lead time for assembly?',
+            answer:
+              'We can build your project in a very short timeframe. You choose the lead time you want when placing the order.',
           },
           {
             question: 'How do you ensure assembly quality?',
             answer:
-              'AOI checks, IPC-A-610 compliant processes, and a technical review before launch. Each batch is tracked and documented.',
+              'We follow IPC standards and perform systematic X-ray inspection for your project.',
           },
           {
             question: 'Can you handle small batches?',
             answer:
-              'Yes. No minimum quantity required, so you can adapt volumes and windows to your schedule.',
+              'Yes. No minimum quantity required.',
           },
         ],
       },
@@ -657,15 +704,15 @@ const translations = {
         items: [
           {
             title: 'Configure your project online',
-            text: 'EVIACORE™ web platform. Online quoting.',
+            text: 'EVIACORE® web platform with online quoting.',
           },
           {
             title: 'Validate quantities and lead times',
-            text: 'Connected to top suppliers. Best pricing in minutes.',
+            text: 'Connected to leading suppliers. Best pricing in minutes.',
           },
           {
             title: 'Launch and track manufacturing',
-            text: 'Order online in one click. Simple and fast, with expert support.',
+            text: 'Order online in one click. Simple, fast, and backed by our team.',
           },
           {
             title: 'Receive your order in Express',
@@ -688,77 +735,108 @@ const translations = {
         },
       ],
       timelineOnline: {
-        title: 'Create your project online',
+        title: 'Create your project online, from configuration to validation',
         items: [
           {
-            title: 'PCB specification',
-            text: 'Define your standard or complex PCB, dimensions, 1 to 16 layers...',
+            title: 'PCB specification and key constraints',
+            text: 'Define your standard or complex PCB: dimensions, 1 to 24 layers, stackup, impedance, and critical options.',
           },
           {
-            title: 'BOM import',
-            text: 'Import your file and the EVIACORE™ algorithm finds available components at the best price.',
+            title: 'Bill of materials (BOM) import',
+            text: 'Import your BOM: the EVIACORE® algorithm selects available, compatible components at the best price.',
           },
           {
-            title: 'Manufacturing files',
-            text: 'Upload the required files: Gerbers/ODB++, placement plan, and pick-and-place file.',
+            title: 'Manufacturing and placement files',
+            text: 'Upload Gerbers/ODB++, placement plan, and pick-and-place file for a complete, usable package.',
           },
           {
-            title: 'Price Optimizer',
-            text: 'A unique tool that analyzes cost based on lead time, quantity, and the best supplier offers.',
+            title: 'Price Optimizer to drive cost',
+            text: 'EVIACORE® calculates unit cost based on lead time and quantity, using the best supplier offers.',
           },
           {
-            title: 'Online order',
-            text: 'Validate and pay online, generate a PDF quote, and share your cart with colleagues.',
+            title: 'Validation, quote, and online order',
+            text: 'Validate and pay online, generate a PDF quote, and share your cart internally if needed.',
           },
           {
-            title: 'Track manufacturing & delivery',
-            text: 'Follow production progress from your account and receive notifications.',
+            title: 'Real-time manufacturing & delivery tracking',
+            text: 'Track progress from your web account, with notifications at key milestones.',
           },
         ],
       },
       timelineFabrication: {
-        title: 'Manufacturing',
+        title: 'Manufacturing and controls, step by step',
         items: [
           {
-            title: 'Incoming inspection / preparation',
-            text: 'All components are counted and repackaged for SMT placement.',
+            title: 'Incoming inspection and component prep',
+            text: 'Components are counted, verified, repackaged, and prepared for SMT placement.',
           },
           {
-            title: 'Solder paste deposition',
-            text: 'We apply solder paste using jetting, without stencils.',
+            title: 'Jetting solder paste deposition',
+            text: 'Jetting deposition without stencils for a flexible, precise process.',
           },
           {
-            title: 'SMT placement',
-            text: 'Components are placed on an automated line.',
+            title: 'SMT placement on automated lines',
+            text: 'Automated placement with controlled accuracy and throughput.',
           },
           {
-            title: 'Reflow oven',
-            text: 'Vapor phase oven following a JEDEC temperature profile, verified daily with a profiler.',
+            title: 'Vapor phase reflow',
+            text: 'JEDEC temperature profile, verified daily with a profiler.',
           },
           {
             title: 'X-ray inspection',
-            text: 'We perform radiography ourselves, with a provider on-site while waiting to receive our RX.',
+            text: 'X-ray inspection performed by our team, with a partner while we await in-house RX.',
           },
           {
             title: 'Through-hole insertion',
-            text: 'Through-hole leads are preformed and cut.',
+            text: 'Through-hole leads are preformed, cut, and prepared for assembly.',
           },
           {
-            title: 'Visual inspection',
-            text: 'Assembly is inspected according to IPC standards.',
+            title: 'IPC visual inspection',
+            text: 'Systematic visual inspection according to IPC standards.',
           },
           {
-            title: 'Packaging and shipping',
-            text: 'Your order is packed in anti-static bags and shipped by express carrier.',
+            title: 'Anti-static packaging and express shipping',
+            text: 'Anti-static protection, careful packing, and express shipment.',
+          },
+        ],
+      },
+      assemblyFeatures: {
+        title: 'PCB assembly capabilities',
+        groups: [
+          {
+            title: 'PCB',
+            items: [
+              '10x10mm to 400x400mm',
+              'Controlled impedance',
+              'FR4, CEM, Roger',
+              'Custom stackup',
+              'Rigid, SMI, Rigid-Flex',
+              'ENIG (NiAu), HAL, Sn, Ag',
+              'Solder mask green, white, black, red...',
+              '1 to 24 layers',
+              'Via filled, laser microvia, blind/buried vias',
+            ],
+          },
+          {
+            title: 'Assembly',
+            items: [
+              'SMT, Through-hole, PressFit',
+              'BGA, µBGA, LGA, QFN, 0201...',
+              'Fine pitch 0.3mm',
+            ],
+          },
+          {
+            title: 'Inspection',
+            items: ['AOI', 'X-ray inspection machine'],
           },
         ],
       },
     },
     servicesHero: {
       eyebrow: 'Electronic assembly',
-      title: 'Launch production with clear, guided control.',
+      title: 'Launch your boards into production with clear guidance.',
       lead:
-        'Quote, assemble, and track every step of your electronic boards from one interface, with local production and reliable lead times.',
+        'Quote, assemble, and track every step of your electronic boards from one interface, with local production and controlled lead times. PCBA assembly and component sourcing handled by our team.',
       tags: ['Short lead time', 'Full traceability', 'Expert support'],
       primaryCta: 'Access my account',
       secondaryCta: 'View our services',
@@ -782,6 +860,8 @@ const translations = {
         recaptchaError: 'Please complete the recaptcha to submit the form.',
         recaptchaMissing: 'Recaptcha not configured. Add your site key.',
         successMessage: 'Your message has been sent, thank you.',
+        submitError: 'Something went wrong. Please try again.',
+        sending: 'Sending...',
         submit: 'Send request',
       },
     },
@@ -793,7 +873,7 @@ const translations = {
       privacy: 'Privacy policy',
       ctaText: 'Need PCBA? Log in here.',
       rights:
-        'EVIACORE™\n8 Allée Isaac Newton – 33650 Martillac\nSAS with share capital of €30,000 – RCS Bordeaux 994 666 436\n© 2026 – All rights reserved',
+        'EVIACORE®\n8 Allée Isaac Newton – 33650 Martillac\nSAS with share capital of €30,000 – RCS Bordeaux 994 666 436\n© 2026 – All rights reserved',
     },
     cgvPage: {
       eyebrow: 'Terms of Sale',
@@ -803,7 +883,7 @@ const translations = {
         {
           title: 'Article 1 – Purpose',
           lines: [
-            'These Terms of Sale govern electronic assembly (PCBA), component sourcing, and technical services performed by EVIACORE™ for professional clients only.',
+            'These Terms of Sale govern electronic assembly (PCBA), component sourcing, and technical services performed by EVIACORE® for professional clients only.',
           ],
         },
         {
@@ -827,7 +907,7 @@ const translations = {
         {
           title: 'Article 4 – Nature of the intervention',
           lines: [
-            'EVIACORE™ acts solely as an industrial subcontractor responsible for assembly.',
+            'EVIACORE® acts solely as an industrial subcontractor responsible for assembly.',
             'The company assumes no responsibility relating to:',
             'product design,',
             'electronic schematic,',
@@ -846,8 +926,8 @@ const translations = {
             'quality,',
             'authenticity,',
             'compatibility.',
-            '5.2 Components purchased by EVIACORE™',
-            'EVIACORE™ acts based on the references provided.',
+            '5.2 Components purchased by EVIACORE®',
+            'EVIACORE® acts based on the references provided.',
             'The company cannot be held liable for:',
             'a supplier error,',
             'a defective batch,',
@@ -864,7 +944,7 @@ const translations = {
         {
           title: 'Article 7 – Retention of title',
           lines: [
-            'Delivered products remain the property of EVIACORE™ until full payment of sums due.',
+            'Delivered products remain the property of EVIACORE® until full payment of sums due.',
           ],
         },
         {
@@ -890,7 +970,7 @@ const translations = {
         {
           title: 'Article 11 – Limitation of liability',
           lines: [
-            'EVIACORE™’s financial liability is limited to the net amount of the relevant service.',
+            'EVIACORE®’s financial liability is limited to the net amount of the relevant service.',
             'Excluded:',
             'operating losses',
             'production losses',
@@ -902,7 +982,7 @@ const translations = {
         {
           title: 'Article 12 – Professional liability insurance',
           lines: [
-            'EVIACORE™ declares that it holds Professional Civil Liability insurance covering the financial consequences of its liability in the course of its activity.',
+            'EVIACORE® declares that it holds Professional Civil Liability insurance covering the financial consequences of its liability in the course of its activity.',
             'This insurance does not extend liability beyond the limits set in these Terms.',
             'A certificate can be provided upon request.',
           ],
@@ -910,14 +990,14 @@ const translations = {
         {
           title: 'Article 13 – Confidentiality',
           lines: [
-            'EVIACORE™ undertakes to preserve the confidentiality of technical documents provided.',
+            'EVIACORE® undertakes to preserve the confidentiality of technical documents provided.',
             'An NDA can be signed on request.',
           ],
         },
         {
           title: 'Article 14 – Force majeure',
           lines: [
-            'EVIACORE™ cannot be held liable in the event of an unforeseeable, irresistible, and external event.',
+            'EVIACORE® cannot be held liable in the event of an unforeseeable, irresistible, and external event.',
           ],
         },
         {
@@ -942,10 +1022,10 @@ const translations = {
         {
           title: 'Data controller',
           lines: [
-            'EVIACORE™',
+            'EVIACORE®',
             'SAS with share capital of €30,000',
             'RCS Bordeaux 994 666 436',
-            'Email: contact@EVIACORE™.com',
+            'Email: contact@eviacore.com',
           ],
         },
         {
@@ -955,6 +1035,7 @@ const translations = {
             'Business data',
             'Technical documents',
             'Connection logs',
+            'EVIACORE® and its partners use cookies and similar technologies to measure audience, administer the website, analyze user journeys, and compile aggregated statistics. You can manage cookies via your browser settings.',
           ],
         },
         {
@@ -977,7 +1058,7 @@ const translations = {
         {
           title: 'Recipients',
           lines: [
-            'EVIACORE™ and its technical providers (O2Switch and OVH).',
+            'EVIACORE® and its technical providers (O2Switch and OVH).',
           ],
         },
         {
@@ -990,7 +1071,7 @@ const translations = {
           title: 'Rights',
           lines: [
             'Right of access, rectification, erasure, objection.',
-            'Requests should be sent to: contact@EVIACORE™.com',
+            'Requests should be sent to: contact@eviacore.com',
           ],
         },
         {
@@ -1003,18 +1084,18 @@ const translations = {
     },
     legalPage: {
       eyebrow: 'Legal Notice',
-      title: 'LEGAL NOTICE – EVIACORE™™',
+      title: 'LEGAL NOTICE – EVIACORE®',
       lead: '',
       sections: [
         {
           title: '1. Publisher',
           lines: [
-            'EVIACORE™™',
+            'EVIACORE®',
             'Société par Actions Simplifiée (SAS)',
             'Share capital: €30,000',
             'Registered with the Bordeaux Trade and Companies Register under number 994 666 436',
             'Registered office: 8 Allée Isaac Newton – 33650 Martillac – France',
-            'Email: contact@EVIACORE™.com',
+            'Email: contact@eviacore.com',
             'Publishing director:',
             'Mr Maxime Mérour, President',
           ],
@@ -1022,9 +1103,9 @@ const translations = {
         {
           title: '2. Trademark',
           lines: [
-            'The EVIACORE™™ trademark is the subject of a registration application with the INPI under number 25 5196343, filed on 05 November 2025 and published in the Official Bulletin of Industrial Property on 28 November 2025.',
+            'The EVIACORE® trademark is the subject of a registration application with the INPI under number 25 5196343, filed on 05 November 2025 and published in the Official Bulletin of Industrial Property on 28 November 2025.',
             'The trademark is filed in the name of Mr Maxime Mérour.',
-            'EVIACORE™ has the right to use the said trademark.',
+            'EVIACORE® has the right to use the said trademark.',
             'Any reproduction, imitation, or use without prior written authorization is prohibited.',
           ],
         },
@@ -1047,7 +1128,7 @@ const translations = {
         {
           title: '5. Liability',
           lines: [
-            'EVIACORE™ cannot be held liable for:',
+            'EVIACORE® cannot be held liable for:',
             'errors or omissions,',
             'temporary interruption of the site,',
             'direct or indirect damages related to the use of the site,',
