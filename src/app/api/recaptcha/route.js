@@ -7,7 +7,7 @@ export async function POST(request) {
   let payload
   try {
     payload = await request.json()
-  } catch (_error) {
+  } catch {
     return Response.json({ success: false, error: 'invalid-json' }, { status: 400 })
   }
 
@@ -41,7 +41,7 @@ export async function POST(request) {
       return Response.json({ success: false, error: 'action-mismatch' }, { status: 400 })
     }
     return Response.json({ success: true })
-  } catch (_error) {
+  } catch {
     return Response.json({ success: false, error: 'verify-error' }, { status: 500 })
   }
 }

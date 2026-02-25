@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Script from 'next/script'
 import { useLanguage } from '../contexts/LanguageContext'
 
@@ -18,13 +18,13 @@ function Contact() {
     '6LfdM2YsAAAAAFf_HYPC4wE-yWleyzfnYC7Bojmp'
   const recaptchaWidgetId = useRef(null)
 
-  const getRecaptchaClient = () => {
+  const getRecaptchaClient = useCallback(() => {
     if (typeof window === 'undefined') return null
     if (!window.grecaptcha) return null
     return window.grecaptcha
-  }
+  }, [])
 
-  const renderRecaptcha = () => {
+  const renderRecaptcha = useCallback(() => {
     const recaptcha = getRecaptchaClient()
     if (!siteKey || !recaptcha) return
     recaptcha.ready(() => {
@@ -38,11 +38,11 @@ function Contact() {
         size: 'invisible',
       })
     })
-  }
+  }, [getRecaptchaClient, siteKey])
 
   useEffect(() => {
     renderRecaptcha()
-  }, [language, siteKey])
+  }, [language, renderRecaptcha])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -80,7 +80,7 @@ function Contact() {
       setName('')
       setEmail('')
       setMessage('')
-    } catch (_error) {
+    } catch {
       setSubmitError(t('contact.form.submitError'))
     } finally {
       setIsSubmitting(false)
